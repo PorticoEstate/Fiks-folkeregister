@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+
+    fiks:
+      restart: always
+      build : .
+      container_name: fiks
+      volumes:
+      - ./src:/var/www/html
+      networks:
+      - frontend
+      ports:
+      - "8210:80"
+      labels:
+      - "traefik.enable=false"
+
+networks:
+    frontend:
+       external:
+           name: outside

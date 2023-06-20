@@ -1,0 +1,3 @@
+.env
+*.p12
+/src/vendor/*

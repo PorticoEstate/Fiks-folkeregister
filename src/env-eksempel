@@ -1,0 +1,15 @@
+#
+APIKEY=""
+
+FIKS_ENDPOINT="https://api.fiks.test.ks.no/folkeregister/api/v1/"
+FIKS_ID =""
+FIKS_PWD =""
+FIKS_ROLLE_ID = "" # med rett  hjemmel
+IDP_HOST=""
+IDP_TOKENENDPOINT=""
+IDP_AUDIENCE = "https://ver2.maskinporten.no/" # test
+IDP_ISSUER = "" #integrasjon id idp
+CERTPASS = ""
+CERTFILE= "./fil.p12" # signering
+#PROXY = "proxy.bergen.kommune.no:8080"
+
