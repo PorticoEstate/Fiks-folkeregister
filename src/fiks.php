@@ -166,7 +166,7 @@
 				)
 			));
 
-			if ($_ENV['PROXY'])
+			if (!empty($_ENV['PROXY']))
 			{
 				curl_setopt($curl, CURLOPT_PROXY, $_ENV['PROXY']);
 			}
@@ -259,7 +259,7 @@
 					"cache-control: no-cache",
 					"Content-Type: application/x-www-form-urlencoded")));
 
-			if ($_ENV['PROXY'])
+			if (!empty($_ENV['PROXY']))
 			{
 				curl_setopt($curl, CURLOPT_PROXY, $_ENV['PROXY']);
 			}
