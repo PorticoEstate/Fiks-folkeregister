@@ -9,13 +9,13 @@ services:
       volumes:
       - ./src:/var/www/html
       networks:
-      - frontend
+      - web
       ports:
       - "8210:80"
       labels:
       - "traefik.enable=false"
 
 networks:
-    frontend:
-       external:
-           name: outside
+  web:
+   name: webserver_network
+   external: true
