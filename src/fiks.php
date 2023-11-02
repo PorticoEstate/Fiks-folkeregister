@@ -145,6 +145,11 @@
 			$xurl = $fiks_endpoint . $path;
 			//<MILJØ_URL>/folkeregister/api/v1/{ROLLE_ID}/{FREG_RESSURS}
 
+			if($this->debug)
+			{
+				_debug_array($xurl);
+			}
+
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
 				CURLOPT_PORT			 => "443",
@@ -241,6 +246,11 @@
 			$jwt = JWT::encode($payload, $privateKey, 'RS256', null, array('x5c' => array($crtraw)));
 
 			$data = "grant_type=" . $grant_type . "&assertion=" . $jwt;
+
+			if($this->debug)
+			{
+				_debug_array($tokenEndpoint);
+			}
 
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
