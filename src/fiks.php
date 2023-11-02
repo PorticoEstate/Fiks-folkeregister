@@ -55,7 +55,7 @@
 			$adressebeskyttelse	 = 'ugradert';
 			$person				 = $this->_get_person("/v1/personer/{$fnr}", $this->access_token);
 
-			if (!$person)
+			if (!$person || !empty($person['error']))
 			{
 				return "Error: Person not found\n";
 			}
