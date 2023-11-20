@@ -68,6 +68,8 @@
 					$etternavn	 = $linje['etternavn'];
 				}
 			}
+			unset($linje);
+
 			foreach ($person['status'] as $linje)
 			{
 				if ($linje['erGjeldende'] == '1')
@@ -75,7 +77,16 @@
 					$status = $linje['status'];
 				}
 			}
+			unset($linje);
 
+			foreach ($person['foedsel'] as $linje)
+			{
+				if ($linje['erGjeldende'] == '1')
+				{
+					$foedselsdato = $linje['foedselsdato'];
+				}
+			}
+			unset($linje);
 
 			if (isset($person['adressebeskyttelse']) && is_array($person['adressebeskyttelse']))
 			{
@@ -86,6 +97,7 @@
 						$adressebeskyttelse = $linje['graderingsnivaa'];
 					}
 				}
+				unset($linje);
 			}
 
 			if (isset($person['bostedsadresse']))
@@ -101,6 +113,7 @@
 						);
 					}
 				}
+				unset($linje);
 			}
 			else if (isset($person['postadresse']) && is_array($person['postadresse']))
 			{
@@ -121,14 +134,22 @@
 						}
 					}
 				}
+				unset($linje);
 			}
+
 			$returnobj = array(
 				'fornavn'			 => $fornavn,
 				'etternavn'			 => $etternavn,
+				'foedselsdato'		 => $foedselsdato,
 				'postadresse'		 => $postadresse_array,
 				'status'			 => $status,
 				'adressebeskyttelse' => $adressebeskyttelse,
 			);
+
+			if(!empty($person['doedsfall']['doedsdato']))
+			{
+				$returnobj['doedsdato'] = $person['doedsfall']['doedsdato'];
+			}
 
 			return (json_encode($returnobj));
 		}
