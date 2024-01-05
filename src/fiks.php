@@ -106,11 +106,21 @@
 				{
 					if ($linje['erGjeldende'] == '1')
 					{
-						$bokstav			 = !empty($linje['vegadresse']['adressenummer']['husbokstav']) ? $linje['vegadresse']['adressenummer']['husbokstav'] : '';
-						$postadresse_array	 = array(
-							$linje['vegadresse']['adressenavn'] . " " . $linje['vegadresse']['adressenummer']['husnummer'] . $bokstav,
-							$linje['vegadresse']['poststed']['postnummer'] . " " . $linje['vegadresse']['poststed']['poststedsnavn']
-						);
+						if(!empty($linje['ukjentBosted']))
+						{
+							$postadresse_array	 = array(
+								'Ukjent Bosted',
+								" "
+							);
+						}
+						else
+						{
+							$bokstav			 = !empty($linje['vegadresse']['adressenummer']['husbokstav']) ? $linje['vegadresse']['adressenummer']['husbokstav'] : '';
+							$postadresse_array	 = array(
+								$linje['vegadresse']['adressenavn'] . " " . $linje['vegadresse']['adressenummer']['husnummer'] . $bokstav,
+								$linje['vegadresse']['poststed']['postnummer'] . " " . $linje['vegadresse']['poststed']['poststedsnavn']
+							);
+						}
 					}
 				}
 				unset($linje);
