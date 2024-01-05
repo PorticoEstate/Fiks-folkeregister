@@ -134,7 +134,7 @@
 						if (isset($linje['postadresseIFrittFormat']['adresselinje']))
 						{
 							$postadresse_array = $linje['postadresseIFrittFormat']['adresselinje'];
-							$postadresse_array[] = $linje['postadresseIFrittFormat']['poststed']['postnummer'] . " " . $linje['postboksadresse']['poststed']['poststedsnavn'];
+							$postadresse_array[] = $linje['postadresseIFrittFormat']['poststed']['postnummer'] . " " . $linje['postadresseIFrittFormat']['poststed']['poststedsnavn'];
 						}
 						else
 						{
