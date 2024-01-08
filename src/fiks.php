@@ -131,7 +131,14 @@
 				{
 					if ($linje['erGjeldende'] == '1')
 					{
-						if (isset($linje['postadresseIFrittFormat']['adresselinje']))
+						if (isset($linje['vegadresse']))
+						{
+							$postadresse_array	 = array(
+								$linje['vegadresse']['adressenavn'] . " " . $linje['vegadresse']['adressenummer']['husnummer'] . $bokstav,
+								$linje['vegadresse']['poststed']['postnummer'] . " " . $linje['vegadresse']['poststed']['poststedsnavn']
+							);
+						}
+						else if (isset($linje['postadresseIFrittFormat']['adresselinje']))
 						{
 							$postadresse_array = $linje['postadresseIFrittFormat']['adresselinje'];
 							$postadresse_array[] = $linje['postadresseIFrittFormat']['poststed']['postnummer'] . " " . $linje['postadresseIFrittFormat']['poststed']['poststedsnavn'];
